@@ -2,9 +2,6 @@ class Solution {
     public int solution(int N) {
         String binary = Integer.toBinaryString(N);
         int i = binary.length()-1;
-        while(binary.charAt(i)=='0') {
-            i--;
-        }
         int gap = 0;
         int counter = 0;
         for(; i>=0; i--) {
