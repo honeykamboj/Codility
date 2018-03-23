@@ -1,21 +1,23 @@
 class Solution {
-    public int solution(int N) {
-        String binary = Integer.toBinaryString(N);
-        int i = binary.length()-1;
-        while(binary.charAt(i)=='0') {
-            i--;
+    public static int solution(int N) {
+        
+      System.out.println(Integer.toBinaryString(N));
+        
+        int binaryGap = 0;
+        
+        while(N % 2 == 0){
+            N /= 2;
         }
-        int gap = 0;
-        int counter = 0;
-        for(; i>=0; i--) {
-            if(binary.charAt(i)=='1') {
-                gap = Math.max(gap, counter);
-                counter = 0;
-            } else {
-                counter++;
+        
+        for(int j = 0; N > 0; N/=2){
+            if(N % 2 == 0){
+                j++;
+            }else{
+                binaryGap = Math.max(binaryGap, j);
+                j = 0;
             }
         }
-        gap = Math.max(gap, counter);
-        return gap;
+    
+        return binaryGap;
     }
 }
